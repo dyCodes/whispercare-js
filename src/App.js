@@ -1,6 +1,9 @@
-import { createTheme, CssBaseline, ThemeProvider } from "@mui/material";
 import "./main.css";
+import { createTheme, CssBaseline, ThemeProvider } from "@mui/material";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import ErrorPage from "./pages/ErrorPage";
 import Home from "./pages/Home";
+import Review from "./pages/Review";
 
 function App() {
 	const theme = createTheme({
@@ -29,11 +32,23 @@ function App() {
 		},
 	});
 
+	const router = createBrowserRouter([
+		{
+			path: "/",
+			element: <Home />,
+			errorElement: <ErrorPage />,
+		},
+		{
+			path: "review",
+			element: <Review />,
+		},
+	]);
+
 	return (
 		<ThemeProvider theme={theme}>
 			<CssBaseline />
 
-			<Home />
+			<RouterProvider router={router} />
 		</ThemeProvider>
 	);
 }

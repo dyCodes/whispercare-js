@@ -1,4 +1,5 @@
 import React from "react";
+import { Link as RouterLink } from "react-router-dom";
 import { Button, Card, Container, Link, Typography } from "@mui/material";
 import Layout from "../components/Layout";
 import RecentQRScans from "../components/RecentQRScans";
@@ -25,7 +26,7 @@ const Home = () => {
 						Record an audio review of purchased products.
 					</Typography>
 
-					<Link href="/review" underline="hover" className="review_button">
+					<Link component={RouterLink} to="/review" underline="hover" className="review_button">
 						Start now
 						<ArrowForwardIcon className="icon" />
 					</Link>
