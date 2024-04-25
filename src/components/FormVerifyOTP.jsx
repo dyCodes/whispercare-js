@@ -1,15 +1,10 @@
+import React, { useState } from "react";
 import { Button, Card, CardActions, Link, Typography } from "@mui/material";
 import { MuiOtpInput } from "mui-one-time-password-input";
-import React, { useState } from "react";
+import products from "../assets/products-demo.json";
 
 const FormVerifyOTP = ({ setLoading, setProductData }) => {
 	const [OTPcode, setOTPcode] = useState("");
-
-	// const validateChar = (text, index) => {
-	// 	const isNumber = typeof text === "number";
-	// 	const isString = typeof text === "string";
-	// 	return (isNumber || (isString && text !== "")) && !isNaN(Number(text));
-	// };
 
 	const handleCancel = () => {
 		setOTPcode("");
@@ -24,12 +19,8 @@ const FormVerifyOTP = ({ setLoading, setProductData }) => {
 			// API call to verify OTP code - for demo purposes, we'll just set a timeout
 			setTimeout(() => {
 				setLoading(false);
-				setProductData({
-					name: "Mary Kay® CC Cream Sunscreen Broad Spectrum SPF 15*",
-					size: "Medium to Deep",
-					photo: "demo.jpg",
-				});
-			}, 2000);
+				setProductData(products[0]);
+			}, 1000);
 		} else {
 			alert("Please enter the OTP code");
 		}
@@ -48,8 +39,8 @@ const FormVerifyOTP = ({ setLoading, setProductData }) => {
 						length={5}
 						value={OTPcode}
 						onChange={(e) => setOTPcode(e)}
-						// validateChar={validateChar} type: "number"
-						TextFieldsProps={{ size: "large", placeholder: "-" }}
+						// type: "number"
+						TextFieldsProps={{ type: "number", size: "large", placeholder: "-" }}
 					/>
 
 					<Typography component="p" align="center" className="mute_text">

@@ -1,10 +1,16 @@
 import { Button, Container, Divider, Slider, Stack, Typography } from "@mui/material";
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Layout from "../components/Layout";
+import { AppContext } from "../context/AppContext";
 
 const Settings = () => {
+	const { speak } = useContext(AppContext);
 	const [fontSize, setFontSize] = useState(2);
 	const [speechSpeed, setSpeechSpeed] = useState(2);
+
+	useEffect(() => {
+		speak("Settings", true);
+	}, [speak]);
 
 	return (
 		<Layout page="Settings">

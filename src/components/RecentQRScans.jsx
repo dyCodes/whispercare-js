@@ -1,49 +1,30 @@
-import { Link, ListItem, Stack } from "@mui/material";
 import React from "react";
+import { Link, ListItem, Stack } from "@mui/material";
+import { Link as RouterLink } from "react-router-dom";
 
-const RecentQRScans = () => {
+const RecentQRScans = ({ recentScans }) => {
 	return (
 		<>
 			<Stack spacing={2} className="recent_scans">
-				<RecentScanItem
-					brand="MARY KAY"
-					product="Sunscreen broad SPF 15"
-					img={process.env.PUBLIC_URL + "/assets/mary_kay.png"}
-				/>
-
-				<RecentScanItem
-					brand="ESTEE LAUDER"
-					product="Sunscreen broad SPF 15"
-					img={process.env.PUBLIC_URL + "/assets/estee_lauder.png"}
-				/>
-
-				<RecentScanItem
-					brand="MARY KAY"
-					product="Sunscreen broad SPF 15"
-					img={process.env.PUBLIC_URL + "/assets/mary_kay.png"}
-				/>
-
-				<RecentScanItem
-					brand="ESTEE LAUDER"
-					product="Sunscreen broad SPF 15"
-					img={process.env.PUBLIC_URL + "/assets/estee_lauder.png"}
-				/>
+				{recentScans.map((product) => (
+					<RecentScanItem key={product.id} product={product} />
+				))}
 			</Stack>
 		</>
 	);
 };
 
-const RecentScanItem = ({ brand, product, img }) => {
+const RecentScanItem = ({ product }) => {
 	return (
 		<ListItem className="recent_scans_item">
-			<img src={img} alt={product} />
+			<img src={product.img} alt={product.name} />
 
 			<div className="details">
-				<h5 className="brand">{brand}</h5>
+				<h5 className="brand">{product.brand}</h5>
 
-				<p>{product}</p>
+				<p>{product.name}</p>
 
-				<Link href="#" underline="hover">
+				<Link component={RouterLink} to={"/product/" + product.code} underline="hover">
 					View details
 				</Link>
 			</div>

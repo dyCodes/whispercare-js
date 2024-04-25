@@ -6,6 +6,8 @@ import Home from "./pages/Home";
 import Review from "./pages/Review";
 import Settings from "./pages/Settings";
 import Product from "./pages/Product";
+import ScanHistory from "./pages/ScanHistory";
+import { AppProvider } from "./context/AppContext";
 
 function App() {
 	const router = createBrowserRouter([
@@ -15,24 +17,28 @@ function App() {
 			errorElement: <ErrorPage />,
 		},
 		{
+			path: "product/:id",
+			element: <Product />,
+		},
+		{
 			path: "review",
 			element: <Review />,
+		},
+		{
+			path: "scan-history",
+			element: <ScanHistory />,
 		},
 		{
 			path: "settings",
 			element: <Settings />,
 		},
-		{
-			path: "product/:id",
-			element: <Product />,
-		},
 	]);
 
 	return (
-		<>
+		<AppProvider>
 			<CssBaseline />
 			<RouterProvider router={router} />
-		</>
+		</AppProvider>
 	);
 }
 

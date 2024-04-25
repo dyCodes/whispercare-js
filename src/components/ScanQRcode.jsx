@@ -1,11 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Html5Qrcode } from "html5-qrcode";
 import { Box, Button, CircularProgress, Dialog, Typography } from "@mui/material";
 import products from "../assets/products-demo.json";
+import { AppContext } from "../context/AppContext";
 
 const qrcodeRegionId = "html5qr-code-full-region";
 
 const ScanQRcode = ({ setOpenModal, openModal }) => {
+	const { speak } = useContext(AppContext);
 	const [scanner, setScanner] = useState(null);
 	const [data, setData] = useState({ error: false, loading: true });
 
@@ -24,6 +26,9 @@ const ScanQRcode = ({ setOpenModal, openModal }) => {
 	};
 
 	const stopScanning = (closeModal) => {
+		speak("Scanning cancelled");
+		closeModal && setOpenModal(false);
+
 		if (scanner) {
 			scanner
 				.stop()
@@ -32,7 +37,6 @@ const ScanQRcode = ({ setOpenModal, openModal }) => {
 				})
 				.catch((err) => handleError(err));
 		}
-		return closeModal && setOpenModal(false);
 	};
 
 	useEffect(() => {
@@ -42,13 +46,15 @@ const ScanQRcode = ({ setOpenModal, openModal }) => {
 				if (devices && devices.length) {
 					// let cameraId = devices[0].id;
 					setScanner(new Html5Qrcode(qrcodeRegionId));
+					speak("Scanning... Button: Cancel Scan");
 				}
 			})
 			.catch((err) => {
 				handleError(err);
 				setData({ error: err, loading: false });
+				speak("Scanning failed. Permission required.");
 			});
-	}, []);
+	}, [speak]);
 
 	return (
 		<Dialog fullWidth onClose={handleModalClose} open={openModal}>
@@ -106,11 +112,11 @@ const ResultDisplay = ({ data }) => {
 	} else {
 		return (
 			<div className="result">
-				<Typography align="center" variant="h6" mt={2.5} sx={{ fontWeight: "bold" }}>
+				<Typography align="center" variant="h6" mt={2.5} sx={{ fontWeight: "bold", lineBreak: "anywhere" }}>
 					Code: {data.decodedText}
 				</Typography>
 
-				<Typography align="center" variant="h6" my={1} color={"error"}>
+				<Typography align="center" variant="h6" mt={1.5} mx={1.4} color={"error"}>
 					No product found with this code
 				</Typography>
 			</div>

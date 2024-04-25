@@ -2,8 +2,8 @@ import React, { useContext } from "react";
 import { Button, Container, Link, Paper, styled, Switch } from "@mui/material";
 import { Link as RouterLink } from "react-router-dom";
 import HomeIcon from "@mui/icons-material/Home";
-import PlayCircleIcon from "@mui/icons-material/PlayCircle";
 import SettingsIcon from "@mui/icons-material/Settings";
+import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 import Logo from "../assets/img/logo.svg";
 import { ThemeContext } from "../context/ThemeContext";
 
@@ -33,9 +33,11 @@ const Layout = ({ page, children }) => {
 					<Link component={RouterLink} to="/" underline="none">
 						<HomeIcon sx={{ color: "#888", fontSize: "40px" }} />
 					</Link>
-					<Button>
-						<PlayCircleIcon sx={{ color: "#9747FF", fontSize: "50px" }} />
+
+					<Button className="main_button" color="primary">
+						<PlayArrowIcon sx={{ color: "#fff", fontSize: "38px" }} />
 					</Button>
+
 					<Link component={RouterLink} to="/settings" underline="none">
 						<SettingsIcon sx={{ color: "#888", fontSize: "40px" }} />
 					</Link>

@@ -1,21 +1,30 @@
 import { Box, CircularProgress, Container, Divider } from "@mui/material";
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Layout from "../components/Layout";
 import FormVerifyOTP from "../components/FormVerifyOTP";
 import ReviewProduct from "../components/ReviewProduct";
+import { AppContext } from "../context/AppContext";
 
 const Review = () => {
+	const { speak, HandleSpeakEvents } = useContext(AppContext);
 	const [loading, setLoading] = useState(false);
 	const [productData, setProductData] = useState(null);
+
+	useEffect(() => {
+		speak("Review", true);
+	}, [speak]);
 
 	return (
 		<Layout page="Review">
 			<Container maxWidth="sm" className="container">
-				<FormVerifyOTP setLoading={setLoading} setProductData={setProductData} />
+				<div {...HandleSpeakEvents("Form: Verify product purchase code")}>
+					<FormVerifyOTP setLoading={setLoading} setProductData={setProductData} />
+				</div>
 
-				<Divider variant="middle" />
+				<Divider sx={{ mb: "18px" }} />
+
 				{loading && <Loader />}
-				{productData && !loading && <ReviewProduct productData={productData} />}
+				{productData && !loading && <ReviewProduct product={productData} />}
 			</Container>
 		</Layout>
 	);
