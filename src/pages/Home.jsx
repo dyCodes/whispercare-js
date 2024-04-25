@@ -10,11 +10,11 @@ const Home = () => {
 	return (
 		<Layout page="Home">
 			<Container maxWidth="sm" className="container">
-				<div className="scan_qrcode_div">
+				<div className="header_card">
 					<Button className="scan_qrcode">
 						<Card className="card">
 							<img src={QRcode} style={{ display: "block" }} alt="Scan QRcode" />
-							<Typography variant="p" align="center" sx={{ fontWeight: 500 }}>
+							<Typography component="p" align="center" sx={{ fontWeight: 500 }}>
 								Scan QR code to get more information
 							</Typography>
 						</Card>

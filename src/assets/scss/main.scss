@@ -6,26 +6,41 @@
 @import "./layout";
 
 /*!----- COMPONENTS -------*/
+#Home header,
+#Review header {
+	padding-bottom: 65px;
+	margin: 0;
+}
+
+.header_card {
+	position: relative;
+	top: -45px;
+	@include flex_center;
+
+	.card {
+		width: 100%;
+		// max-width: 420px;
+	}
+}
+
+form {
+	.form_actions {
+		@include flex_space_between;
+
+		& > * {
+			width: 48%;
+		}
+	}
+}
 
 /*!----- PAGES -------*/
-.Home {
-	header {
-		padding-bottom: 65px;
-	}
-
-	.scan_qrcode_div {
-		position: relative;
-		top: -45px;
-		@include flex_center;
-	}
+#Home {
 	.scan_qrcode {
 		padding: 0;
 		width: 100%;
 
 		.card {
-			width: 100%;
-			max-width: 420px;
-			padding: 32px 20px;
+			padding: 32px 24px;
 			display: grid;
 			justify-items: center;
 
@@ -61,7 +76,6 @@
 	.recent_scans {
 		.recent_scans_item {
 			padding: 10px 12px;
-
 			background: #f5f5f5;
 			border-radius: 12px;
 
@@ -80,7 +94,40 @@
 			}
 		}
 	}
+
+	&.dark {
+		.start_review_card {
+			background: linear-gradient(180deg, rgba(0, 0, 0, 0.86) 0%, rgba(0, 0, 0, 0.86) 100%),
+				url("./assets/img/review_bg.svg") no-repeat center;
+			background-size: cover;
+		}
+		.recent_scans_item {
+			background: #222 !important;
+		}
+	}
 }
+
+#Review {
+	.card {
+		padding: 30px 14px;
+
+		.OTPfield {
+			margin-top: 18px;
+		}
+		.mute_text {
+			margin: 16px 0;
+			font-size: 14px;
+			color: #717171;
+		}
+	}
+}
+
+#Settings {
+	.settingsItem {
+		margin: 12px 0;
+	}
+}
+//
 
 /*!----- MEDIA QUERIES -------*/
 @include media_screen_sm {

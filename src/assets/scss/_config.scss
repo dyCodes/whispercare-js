@@ -17,6 +17,12 @@ $secondaryHover: rgba(151, 71, 255, 0.75);
 	justify-content: center;
 }
 
+@mixin flex_space_between {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
 // MEDIA QUERIES
 @mixin media_screen_sm {
 	@media (max-width: 576px) {
