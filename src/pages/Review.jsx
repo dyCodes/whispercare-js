@@ -12,14 +12,23 @@ const Review = () => {
 
 	useEffect(() => {
 		speak("Review", true);
+
+		// IOS Fix: Add inputMode="numeric" to all OTP fields
+		const inputFields = Array.from(document.querySelectorAll(".OTPfield input"));
+		inputFields.forEach((input) => {
+			input.setAttribute("inputMode", "numeric");
+		});
 	}, [speak]);
 
 	return (
 		<Layout page="Review">
 			<Container maxWidth="sm" className="container">
-				<div {...HandleSpeakEvents("Form: Verify product purchase code")}>
-					<FormVerifyOTP setLoading={setLoading} setProductData={setProductData} />
-				</div>
+				<FormVerifyOTP
+					setLoading={setLoading}
+					setProductData={setProductData}
+					speak={speak}
+					HandleSpeakEvents={HandleSpeakEvents}
+				/>
 
 				<Divider sx={{ mb: "18px" }} />
 

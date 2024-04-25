@@ -8,6 +8,7 @@ import Settings from "./pages/Settings";
 import Product from "./pages/Product";
 import ScanHistory from "./pages/ScanHistory";
 import { AppProvider } from "./context/AppContext";
+import LocateProduct from "./pages/LocateProduct";
 
 function App() {
 	const router = createBrowserRouter([
@@ -19,6 +20,10 @@ function App() {
 		{
 			path: "product/:id",
 			element: <Product />,
+		},
+		{
+			path: "locate-product",
+			element: <LocateProduct />,
 		},
 		{
 			path: "review",

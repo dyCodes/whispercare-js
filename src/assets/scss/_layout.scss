@@ -40,10 +40,14 @@ main {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
+	}
 
-		a {
-			line-height: 0;
-		}
+	a {
+		line-height: 0;
+
+		// &.active {
+		// 	border-bottom: 1px solid #9747ff;
+		// }
 	}
 
 	.main_button {
@@ -53,6 +57,7 @@ main {
 		top: 0;
 		border-radius: 50%;
 		background-color: #9747ff !important;
+		@include flex_center;
 	}
 }
 

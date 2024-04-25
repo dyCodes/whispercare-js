@@ -1,8 +1,8 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Html5Qrcode } from "html5-qrcode";
 import { Box, Button, CircularProgress, Dialog, Typography } from "@mui/material";
-import products from "../assets/products-demo.json";
 import { AppContext } from "../context/AppContext";
+import ScanQRcodeResult from "./ScanQRcodeResult";
 
 const qrcodeRegionId = "html5qr-code-full-region";
 
@@ -20,14 +20,13 @@ const ScanQRcode = ({ setOpenModal, openModal }) => {
 	};
 
 	const onScanSuccess = (decodedText, decodedResult) => {
-		console.log("DecodedText: ", decodedResult);
 		setData({ decodedText: decodedText, loading: false });
 		stopScanning(false);
 	};
 
 	const stopScanning = (closeModal) => {
-		speak("Scanning cancelled");
 		closeModal && setOpenModal(false);
+		speak("Scanning cancelled");
 
 		if (scanner) {
 			scanner
@@ -44,7 +43,6 @@ const ScanQRcode = ({ setOpenModal, openModal }) => {
 		Html5Qrcode.getCameras()
 			.then((devices) => {
 				if (devices && devices.length) {
-					// let cameraId = devices[0].id;
 					setScanner(new Html5Qrcode(qrcodeRegionId));
 					speak("Scanning... Button: Cancel Scan");
 				}
@@ -52,7 +50,7 @@ const ScanQRcode = ({ setOpenModal, openModal }) => {
 			.catch((err) => {
 				handleError(err);
 				setData({ error: err, loading: false });
-				speak("Scanning failed. Permission required.");
+				speak("Scanning failed: Camera Permission required.");
 			});
 	}, [speak]);
 
@@ -62,7 +60,6 @@ const ScanQRcode = ({ setOpenModal, openModal }) => {
 				{data.loading && (
 					<>
 						<Html5QrcodePlugin scanner={scanner} onScanSuccess={onScanSuccess} />
-						{/* Loader */}
 						<Box sx={{ display: "flex", justifyContent: "center", mt: "24px", mb: "10px" }}>
 							<CircularProgress />
 						</Box>
@@ -76,9 +73,13 @@ const ScanQRcode = ({ setOpenModal, openModal }) => {
 						</Typography>
 					)}
 
-					{data.decodedText && <ResultDisplay data={data} />}
+					{data.decodedText && <ScanQRcodeResult data={data} speak={speak} />}
 
-					<Button variant="contained" sx={{ mt: "18px", mx: "auto" }} onClick={() => stopScanning(true)}>
+					<Button
+						variant="contained"
+						sx={{ mt: "18px", mx: "auto" }}
+						size="large"
+						onClick={() => stopScanning(true)}>
 						Cancel Scan
 					</Button>
 				</div>
@@ -96,32 +97,6 @@ const Html5QrcodePlugin = ({ scanner, onScanSuccess }) => {
 	}, [scanner, onScanSuccess]);
 
 	return <div id={qrcodeRegionId} />;
-};
-
-const ResultDisplay = ({ data }) => {
-	const product = products.find((product) => product.code === data.decodedText);
-
-	if (product) {
-		// Redirect to product page
-		window.location.href = `/product/${product.code}`;
-		return (
-			<Typography align="center" variant="h6" my={1}>
-				Loading...
-			</Typography>
-		);
-	} else {
-		return (
-			<div className="result">
-				<Typography align="center" variant="h6" mt={2.5} sx={{ fontWeight: "bold", lineBreak: "anywhere" }}>
-					Code: {data.decodedText}
-				</Typography>
-
-				<Typography align="center" variant="h6" mt={1.5} mx={1.4} color={"error"}>
-					No product found with this code
-				</Typography>
-			</div>
-		);
-	}
 };
 
 export default ScanQRcode;

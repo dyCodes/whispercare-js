@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link, ListItem, Stack } from "@mui/material";
 import { Link as RouterLink } from "react-router-dom";
+import { AppContext } from "../context/AppContext";
 
 const RecentQRScans = ({ recentScans }) => {
 	return (
@@ -15,8 +16,11 @@ const RecentQRScans = ({ recentScans }) => {
 };
 
 const RecentScanItem = ({ product }) => {
+	const { HandleSpeakEvents } = useContext(AppContext);
+	const ttsContent = `Recent scan: ${product.name} by ${product.brand}. Link: View details`;
+
 	return (
-		<ListItem className="recent_scans_item">
+		<ListItem className="recent_scans_item" {...HandleSpeakEvents(ttsContent)}>
 			<img src={product.img} alt={product.name} />
 
 			<div className="details">

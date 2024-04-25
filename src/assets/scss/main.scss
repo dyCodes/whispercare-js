@@ -42,6 +42,10 @@ form {
 
 	p {
 		margin: 0 0 12px;
+
+		b {
+			padding-right: 4px;
+		}
 	}
 
 	.rating {
@@ -87,6 +91,35 @@ form {
 			margin: 0;
 			margin-bottom: 5px;
 		}
+	}
+}
+
+.confirm_store_modal {
+	button {
+		padding: 10px 16px;
+	}
+}
+
+.feedback_modal {
+	.success_div {
+		@include flex_center;
+		flex-direction: column;
+		padding: 10px 12px 22px;
+	}
+	.content {
+		padding: 0 12px;
+		margin-bottom: 16px;
+	}
+	textarea {
+		resize: none;
+		padding: 12px;
+		width: 100%;
+		border-radius: 3px;
+		border: 1px solid #222;
+	}
+	.form_actions {
+		padding: 0 12px;
+		margin-bottom: 20px;
 	}
 }
 
@@ -164,6 +197,26 @@ form {
 			color: #717171;
 		}
 	}
+
+	.audio_record {
+		@include flex_center;
+		justify-content: space-around;
+
+		.record_icon {
+			width: 52px;
+			height: 52px;
+			margin-right: 8px;
+			color: #fff;
+			background: $primary;
+			border-radius: 50%;
+		}
+
+		.audio_div {
+			width: 90%;
+			position: relative;
+			bottom: -4px;
+		}
+	}
 }
 
 #Product {
@@ -185,8 +238,9 @@ form {
 			}
 
 			.audio_div {
-				height: 60px;
-				border-radius: 12px;
+				height: 58px;
+				border-radius: 18px;
+				padding: 0 6px;
 				border: 1px solid #888;
 				@include flex_center;
 			}
@@ -202,9 +256,18 @@ form {
 	}
 }
 
+#LocateProduct {
+	.store_map {
+		.card img {
+			width: 100%;
+			max-width: 120px;
+		}
+	}
+}
+
 #Settings {
 	.settingsItem {
-		margin: 12px 0;
+		padding-top: 12px;
 	}
 }
 //

@@ -14,38 +14,41 @@
 		"ingredients": "Octyldodecanol, Synthetic Beeswax, VP/Hexadecene Copolymer, Disteardimonium Hectorite, Iron Oxides (CI 77491), Trimethylsiloxysilicate, Alcohol, Propylene Carbonate, Phenoxyethanol, Caprylyl Glycol, Tocopheryl Acetate, Ethylhexylglycerin, Hexylene Glycol.",
 		"description": [
 			"Infused with pure color pigments & crystal chrome pearls for intense color",
-			"Crystal Glide Liquid Eyeshadow is a weightless, yet intensely-playful, long-lasting liquid eye shadow that will saturate your lids in liquid-chrome-shine for up to 24 hours! Infused with pure color pigments and crystal chrome pearls, this innovative technology delivers vibrant, intense color for a buildable, no-feel finish.",
+			"Crystal Glide Liquid Eyeshadow is a weightless, yet intensely-playful, long-lasting liquid eye shadow that will saturate your lids in liquid-chrome-shine for up to 24 hours! This innovative technology delivers vibrant, intense color for a buildable, no-feel finish.",
 			"Can be used as an eyeliner to create sultry looks",
 			"Long-wear, crease-proof, and smudge-proof"
 		],
 		"reviews": [
 			{
 				"id": 1,
-				"name": "John Doe",
+				"name": "Olivia",
 				"rating": 5,
 				"content": "It is so easy to apply and it lasts all day. I have been using it for a few months now and I am very happy with it."
 			},
 			{
 				"id": 2,
-				"name": "Jane Doe",
+				"name": "Charlotte",
 				"rating": 4.5,
-				"content": "I have been using it for a few months now and I am very happy with it. I would definitely recommend this product to anyone who is looking for a great liquid lipstick."
+				"content": "",
+				"audio": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
 			},
 			{
 				"id": 3,
-				"name": "John Smith",
+				"name": "Mia Smith",
 				"rating": 4,
-				"content": "I love this product. It is so easy to apply and it lasts all day. I have been using it for a few months now and I am very happy with it."
+				"content": "",
+				"audio": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
 			},
 			{
 				"id": 4,
-				"name": "Jane Smith",
-				"rating": 4,
-				"content": "I love this product. It is so easy to apply and it lasts all day. I have been using it for a few months now and I am very happy with it."
+				"name": "Sophia",
+				"rating": 3,
+				"content": "",
+				"audio": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
 			},
 			{
 				"id": 5,
-				"name": "John Doe",
+				"name": "Mia Doe",
 				"rating": 4,
 				"content": "I love this product. It is so easy to apply and it lasts all day. I have been using it for a few months now and I am very happy with it."
 			}
@@ -65,7 +68,7 @@
 		"details": "A head-turning, long-wear liquid eyeshadow that delivers vibrant, high-shimmer color in a comfortable, crease-proof formula.",
 		"description": [
 			"Infused with pure color pigments & crystal chrome pearls for intense color",
-			"Crystal Glide Liquid Eyeshadow is a weightless, yet intensely-playful, long-lasting liquid eye shadow that will saturate your lids in liquid-chrome-shine for up to 24 hours! Infused with pure color pigments and crystal chrome pearls, this innovative technology delivers vibrant, intense color for a buildable, no-feel finish.",
+			"Crystal Glide Liquid Eyeshadow is a weightless, yet intensely-playful, long-lasting liquid eye shadow that will saturate your lids in liquid-chrome-shine for up to 24 hours! This innovative technology delivers vibrant, intense color for a buildable, no-feel finish.",
 			"Can be used as an eyeliner to create sultry looks",
 			"Long-wear, crease-proof, and smudge-proof"
 		],
@@ -73,25 +76,26 @@
 		"reviews": [
 			{
 				"id": 1,
-				"name": "John Doe",
+				"name": "Mia Doe",
 				"rating": 5,
 				"content": "It is so easy to apply and it lasts all day. I have been using it for a few months now."
 			},
 			{
 				"id": 2,
-				"name": "Jane Doe",
+				"name": "Charlotte",
 				"rating": 4.5,
-				"content": "I have been using it for a few months now and I am very happy with it. I would definitely recommend this product to anyone who is looking for a great liquid lipstick."
+				"content": "",
+				"audio": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
 			},
 			{
 				"id": 3,
-				"name": "John Smith",
+				"name": "Mia Smith",
 				"rating": 4,
 				"content": "I love this product. It is so easy to apply and it lasts all day. I have been using it for a few months now and I am very happy with it."
 			},
 			{
 				"id": 4,
-				"name": "Jane Smith",
+				"name": "Sophia",
 				"rating": 4,
 				"content": "I love this product. It is so easy to apply and it lasts all day. I have been using it for a few months now and I am very happy with it."
 			}
@@ -119,31 +123,31 @@
 		"reviews": [
 			{
 				"id": 1,
-				"name": "John Doe",
+				"name": "Mia Doe",
 				"rating": 5,
 				"content": "It is so easy to apply and it lasts all day. I have been using it for a few months now and I am very happy with it."
 			},
 			{
 				"id": 2,
-				"name": "Jane Doe",
+				"name": "Charlotte",
 				"rating": 4.5,
 				"content": "I have been using it for a few months now and I am very happy with it. I would definitely recommend this product to anyone who is looking for a great liquid lipstick."
 			},
 			{
 				"id": 3,
-				"name": "John Smith",
+				"name": "Mia Smith",
 				"rating": 4,
 				"content": "I love this product. It is so easy to apply and it lasts all day. I have been using it for a few months now and I am very happy with it."
 			},
 			{
 				"id": 4,
-				"name": "Jane Smith",
+				"name": "Sophia",
 				"rating": 4,
 				"content": "I love this product. It is so easy to apply and it lasts all day. I have been using it for a few months now and I am very happy with it."
 			},
 			{
 				"id": 5,
-				"name": "John Doe",
+				"name": "Mia Doe",
 				"rating": 4,
 				"content": "I love this product. It is so easy to apply and it lasts all day. I have been using it for a few months now and I am very happy with it."
 			}
@@ -171,25 +175,25 @@
 		"reviews": [
 			{
 				"id": 1,
-				"name": "John Doe",
+				"name": "Mia Doe",
 				"rating": 5,
 				"content": "It is so easy to apply and it lasts all day. I have been using it for a few months now."
 			},
 			{
 				"id": 2,
-				"name": "Jane Doe",
+				"name": "Charlotte",
 				"rating": 4.5,
 				"content": "I have been using it for a few months now and I am very happy with it. I would definitely recommend this product to anyone who is looking for a great liquid lipstick."
 			},
 			{
 				"id": 3,
-				"name": "John Smith",
+				"name": "Mia Smith",
 				"rating": 4,
 				"content": "I love this product. It is so easy to apply and it lasts all day. I have been using it for a few months now and I am very happy with it."
 			},
 			{
 				"id": 4,
-				"name": "Jane Smith",
+				"name": "Sophia",
 				"rating": 4,
 				"content": "I love this product. It is so easy to apply and it lasts all day. I have been using it for a few months now and I am very happy with it."
 			}

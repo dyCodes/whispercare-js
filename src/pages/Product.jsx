@@ -14,10 +14,10 @@ const Product = () => {
 
 	useEffect(() => {
 		const product = products.find((product) => product.code === id);
-		const productTTS = `Product: ${product.name}. Brand: ${product.brand}. Color: ${product.color}. Price: ${product.price}. Rating: ${product.rating} over 5.`;
-		speak(productTTS);
-
 		setProduct(product);
+		if (!product) {
+			speak("Product not found");
+		}
 	}, [speak, id]);
 
 	return (
@@ -27,10 +27,10 @@ const Product = () => {
 					<div className="product">
 						<ProductDetails product={product} />
 						<Divider />
-						<ProductInfo product={product} />
+						<ProductInfo product={product} speak={speak} />
 
 						<Divider sx={{ my: "24px" }} />
-						<ProductReviews product={product} />
+						<ProductReviews product={product} speak={speak} />
 					</div>
 				) : (
 					<Typography variant="h4" component="h1" mt={6} align="center" sx={{ fontWeight: "bold" }}>
@@ -42,10 +42,12 @@ const Product = () => {
 	);
 };
 
-const ProductInfo = ({ product }) => {
+const ProductInfo = ({ product, speak }) => {
+	const descText = "Description: " + product.details + " " + product.description.join(", ");
+
 	return (
 		<>
-			<div className="product_info">
+			<div className="product_info" onClick={() => speak(descText)}>
 				<Typography variant="h6" component="h2" my={2} sx={{ fontWeight: "bold" }}>
 					Description
 				</Typography>
@@ -60,7 +62,7 @@ const ProductInfo = ({ product }) => {
 
 			<Divider sx={{ my: "24px" }} />
 
-			<div className="product_info">
+			<div className="product_info" onClick={() => speak("Ingredients: " + product.ingredients)}>
 				<Typography variant="h6" component="h2" my={2} sx={{ fontWeight: "bold" }}>
 					Ingredients
 				</Typography>

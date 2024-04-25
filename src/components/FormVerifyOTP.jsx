@@ -3,7 +3,7 @@ import { Button, Card, CardActions, Link, Typography } from "@mui/material";
 import { MuiOtpInput } from "mui-one-time-password-input";
 import products from "../assets/products-demo.json";
 
-const FormVerifyOTP = ({ setLoading, setProductData }) => {
+const FormVerifyOTP = ({ setLoading, setProductData, speak, HandleSpeakEvents }) => {
 	const [OTPcode, setOTPcode] = useState("");
 
 	const handleCancel = () => {
@@ -15,14 +15,14 @@ const FormVerifyOTP = ({ setLoading, setProductData }) => {
 
 		if (OTPcode) {
 			setLoading(true);
-
 			// API call to verify OTP code - for demo purposes, we'll just set a timeout
 			setTimeout(() => {
 				setLoading(false);
 				setProductData(products[0]);
 			}, 1000);
 		} else {
-			alert("Please enter the OTP code");
+			speak("Please enter the verification code");
+			// alert("Please enter the verification code");
 		}
 	};
 
@@ -30,7 +30,12 @@ const FormVerifyOTP = ({ setLoading, setProductData }) => {
 		<div className="header_card">
 			<Card className="card">
 				<form onSubmit={handleSubmit}>
-					<Typography component="h5" align="center" mb={1} sx={{ fontWeight: 500 }}>
+					<Typography
+						component="h5"
+						align="center"
+						mb={1}
+						{...HandleSpeakEvents("Form: Please check your sms/email after product purchase")}
+						sx={{ fontWeight: 500 }}>
 						Please check your sms/email after product purchase
 					</Typography>
 
@@ -39,7 +44,7 @@ const FormVerifyOTP = ({ setLoading, setProductData }) => {
 						length={5}
 						value={OTPcode}
 						onChange={(e) => setOTPcode(e)}
-						// type: "number"
+						{...HandleSpeakEvents("Input: Verification code")}
 						TextFieldsProps={{ type: "number", size: "large", placeholder: "-" }}
 					/>
 
@@ -48,10 +53,14 @@ const FormVerifyOTP = ({ setLoading, setProductData }) => {
 					</Typography>
 
 					<CardActions className="form_actions">
-						<Button size="large" variant="outlined" onClick={handleCancel}>
+						<Button
+							size="large"
+							variant="outlined"
+							{...HandleSpeakEvents("Cancel button")}
+							onClick={handleCancel}>
 							Cancel
 						</Button>
-						<Button size="large" variant="contained" type="submit">
+						<Button size="large" variant="contained" {...HandleSpeakEvents("Verify button")} type="submit">
 							Verify
 						</Button>
 					</CardActions>

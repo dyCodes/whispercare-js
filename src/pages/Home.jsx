@@ -29,10 +29,7 @@ const Home = () => {
 					<Button
 						className="scan_qrcode"
 						onClick={() => setOpenModal(true)}
-						// If it is a mobile device, then use onTouchStart instead of onMouseDown
-						{...HandleSpeakEvents(ttsContent.scan_qrcode)}
-						//
-					>
+						{...HandleSpeakEvents(ttsContent.scan_qrcode)}>
 						<Card className="card">
 							<QrCode2Icon className="scan_icon" sx={{ fontSize: "92px" }} />
 							<Typography component="p" align="center" sx={{ fontWeight: 500 }}>

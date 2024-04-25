@@ -1,52 +1,10 @@
 import React, { createContext, useState } from "react";
+import demoHistory from "../assets/history-demo.json";
 
 export const AppContext = createContext({});
 
 export const AppProvider = ({ children }) => {
-	const [recentScans, setRecentScans] = useState([
-		{
-			id: 1,
-			code: "1111222201",
-			brand: "MARY KAY",
-			name: "Crystal Glide Lipstick",
-			img: process.env.PUBLIC_URL + "/assets/mary_kay.png",
-		},
-		{
-			id: 2,
-			code: "1111222202",
-			brand: "ESTEE LAUDER",
-			name: "Bronze Liquid Eyeshadow",
-			img: process.env.PUBLIC_URL + "/assets/estee_lauder.png",
-		},
-		{
-			id: 3,
-			code: "1111222203",
-			brand: "MARY KAY",
-			name: "Sunscreen broad SPF 15",
-			img: process.env.PUBLIC_URL + "/assets/mary_kay.png",
-		},
-		{
-			id: 4,
-			code: "1111222204",
-			brand: "ESTEE LAUDER",
-			name: "Sunscreen broad SPF 15",
-			img: process.env.PUBLIC_URL + "/assets/estee_lauder.png",
-		},
-		{
-			id: 5,
-			code: "1111222205",
-			brand: "ESTEE LAUDER",
-			name: "Sunscreen broad SPF 15",
-			img: process.env.PUBLIC_URL + "/assets/estee_lauder.png",
-		},
-		{
-			id: 6,
-			code: "1111222206",
-			brand: "MARY KAY",
-			name: "Sunscreen broad SPF 15",
-			img: process.env.PUBLIC_URL + "/assets/mary_kay.png",
-		},
-	]);
+	const [recentScans, setRecentScans] = useState(demoHistory);
 
 	const pageContent = {
 		Home: "Home page",
@@ -81,15 +39,6 @@ export const AppProvider = ({ children }) => {
 			speakText.rate = 1;
 			speakText.pitch = 1;
 			speakText.volume = 1;
-
-			// speakText.onstart = (e) => {
-			// 	console.log("Text: ", text);
-			// 	console.log("Speaking...");
-			// };
-
-			speakText.onend = (e) => {
-				console.log("Done speaking...");
-			};
 
 			speakText.onerror = (e) => {
 				console.log("Error speaking...");

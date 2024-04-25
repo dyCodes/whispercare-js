@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
-import { Button, Container, Link, Paper, styled, Switch } from "@mui/material";
+import { Container, Link, Paper, styled, Switch } from "@mui/material";
 import { Link as RouterLink } from "react-router-dom";
 import HomeIcon from "@mui/icons-material/Home";
 import SettingsIcon from "@mui/icons-material/Settings";
-import PlayArrowIcon from "@mui/icons-material/PlayArrow";
+import NearMeOutlinedIcon from "@mui/icons-material/NearMeOutlined";
 import Logo from "../assets/img/logo.svg";
 import { ThemeContext } from "../context/ThemeContext";
 
@@ -14,7 +14,7 @@ const Layout = ({ page, children }) => {
 		<div id={page} className={theme.palette.mode}>
 			<header>
 				<Container maxWidth="sm" className="container">
-					<Link href="/" underline="none">
+					<Link component={RouterLink} to="/" underline="none">
 						<img className="logo" src={Logo} alt="Whisper Care" />
 					</Link>
 
@@ -30,15 +30,19 @@ const Layout = ({ page, children }) => {
 
 			<Paper className="action_menu">
 				<Container maxWidth="sm" className="container">
-					<Link component={RouterLink} to="/" underline="none">
+					<Link component={RouterLink} to="/" underline="none" className={page === "Home" ? "active" : ""}>
 						<HomeIcon sx={{ color: "#888", fontSize: "40px" }} />
 					</Link>
 
-					<Button className="main_button" color="primary">
-						<PlayArrowIcon sx={{ color: "#fff", fontSize: "38px" }} />
-					</Button>
+					<Link component={RouterLink} to="/locate-product" underline="none" className="main_button">
+						<NearMeOutlinedIcon sx={{ color: "#fff", fontSize: "35px" }} />
+					</Link>
 
-					<Link component={RouterLink} to="/settings" underline="none">
+					<Link
+						component={RouterLink}
+						to="/settings"
+						underline="none"
+						className={page === "Settings" ? "active" : ""}>
 						<SettingsIcon sx={{ color: "#888", fontSize: "40px" }} />
 					</Link>
 				</Container>
