@@ -1,17 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link as RouterLink } from "react-router-dom";
 import { Button, Card, Container, Link, Typography } from "@mui/material";
 import Layout from "../components/Layout";
 import RecentQRScans from "../components/RecentQRScans";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import QRcode from "../assets/img/qrcode.svg";
+import ScanQRcode from "../components/ScanQRcode";
 
 const Home = () => {
+	const [openModal, setOpenModal] = useState(false);
+
 	return (
 		<Layout page="Home">
 			<Container maxWidth="sm" className="container">
 				<div className="header_card">
-					<Button className="scan_qrcode">
+					<Button className="scan_qrcode" onClick={() => setOpenModal(true)}>
 						<Card className="card">
 							<img src={QRcode} style={{ display: "block" }} alt="Scan QRcode" />
 							<Typography component="p" align="center" sx={{ fontWeight: 500 }}>
@@ -20,6 +23,8 @@ const Home = () => {
 						</Card>
 					</Button>
 				</div>
+
+				{openModal && <ScanQRcode setOpenModal={setOpenModal} openModal={openModal} />}
 
 				<Card className="start_review_card">
 					<Typography variant="h6" mb={2.5} className="heading">

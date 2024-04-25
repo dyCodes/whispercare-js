@@ -5,6 +5,7 @@ import ErrorPage from "./pages/ErrorPage";
 import Home from "./pages/Home";
 import Review from "./pages/Review";
 import Settings from "./pages/Settings";
+import Product from "./pages/Product";
 
 function App() {
 	const router = createBrowserRouter([
@@ -20,6 +21,10 @@ function App() {
 		{
 			path: "settings",
 			element: <Settings />,
+		},
+		{
+			path: "product/:id",
+			element: <Product />,
 		},
 	]);
 
