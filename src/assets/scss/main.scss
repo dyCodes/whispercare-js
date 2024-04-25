@@ -1,0 +1,89 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap");
+
+// IMPORTS
+@import "./config";
+@import "./base";
+@import "./layout";
+
+/*!----- COMPONENTS -------*/
+
+/*!----- PAGES -------*/
+.Home {
+	header {
+		padding-bottom: 65px;
+	}
+
+	.scan_qrcode_div {
+		position: relative;
+		top: -45px;
+		@include flex_center;
+	}
+	.scan_qrcode {
+		padding: 0;
+		width: 100%;
+
+		.card {
+			width: 100%;
+			max-width: 420px;
+			padding: 32px 20px;
+			display: grid;
+			justify-items: center;
+
+			img {
+				padding-bottom: 24px;
+			}
+		}
+	}
+
+	.start_review_card {
+		padding: 12px;
+		background: linear-gradient(180deg, rgba(255, 255, 255, 0.61) 0%, rgba(255, 255, 255, 0.61) 100%),
+			url("./assets/img/review_bg.svg") no-repeat center;
+		background-size: cover;
+		margin-bottom: 32px;
+
+		.heading {
+			margin: 0;
+		}
+		.review_button {
+			display: flex;
+			align-items: center;
+			width: fit-content;
+			padding: 6px 0;
+			font-weight: bold;
+
+			.icon {
+				margin-left: 4px;
+			}
+		}
+	}
+
+	.recent_scans {
+		.recent_scans_item {
+			padding: 10px 12px;
+
+			background: #f5f5f5;
+			border-radius: 12px;
+
+			img {
+				width: 62px;
+				margin-right: 18px;
+			}
+			.brand {
+				margin: 0;
+				font-size: 1rem;
+				font-weight: 600;
+			}
+			p {
+				margin: 0;
+				margin-bottom: 5px;
+			}
+		}
+	}
+}
+
+/*!----- MEDIA QUERIES -------*/
+@include media_screen_sm {
+}
+@include media_screen_lg {
+}
