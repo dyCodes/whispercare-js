@@ -14,36 +14,47 @@ const Layout = ({ page, children }) => {
 		<div id={page} className={theme.palette.mode}>
 			<header>
 				<Container maxWidth="sm" className="container">
-					<Link component={RouterLink} to="/" underline="none">
-						<img className="logo" src={Logo} alt="Whisper Care" />
+					<Link component={RouterLink} to="/" underline="none" aria-label="Home">
+						<img className="logo" src={Logo} alt="Whisper Care Logo" />
 					</Link>
 
 					<MaterialUISwitch
 						checked={theme.palette.mode === "dark" ? true : false}
 						onChange={toggleThemeMode}
-						inputProps={{ "aria-label": "Dark Mode Switch " }}
+						inputProps={{ "aria-label": "Toggle Dark Mode" }}
 					/>
 				</Container>
 			</header>
 
 			<main>{children}</main>
 
-			<Paper className="action_menu">
+			<Paper className="action_menu" role="navigation">
 				<Container maxWidth="sm" className="container">
-					<Link component={RouterLink} to="/" underline="none" className={page === "Home" ? "active" : ""}>
-						<HomeIcon sx={{ color: "#888", fontSize: "40px" }} />
+					<Link
+						component={RouterLink}
+						to="/"
+						underline="none"
+						aria-label="Home"
+						className={page === "Home" ? "active" : ""}>
+						<HomeIcon sx={{ color: "#888", fontSize: "40px" }} aria-hidden="true" />
 					</Link>
 
-					<Link component={RouterLink} to="/locate-product" underline="none" className="main_button">
-						<NearMeOutlinedIcon sx={{ color: "#fff", fontSize: "35px" }} />
+					<Link
+						component={RouterLink}
+						to="/locate-product"
+						underline="none"
+						aria-label="Locate product"
+						className="main_button">
+						<NearMeOutlinedIcon sx={{ color: "#fff", fontSize: "35px" }} aria-hidden="true" />
 					</Link>
 
 					<Link
 						component={RouterLink}
 						to="/settings"
 						underline="none"
+						aria-label="Settings"
 						className={page === "Settings" ? "active" : ""}>
-						<SettingsIcon sx={{ color: "#888", fontSize: "40px" }} />
+						<SettingsIcon sx={{ color: "#888", fontSize: "40px" }} aria-hidden="true" />
 					</Link>
 				</Container>
 			</Paper>

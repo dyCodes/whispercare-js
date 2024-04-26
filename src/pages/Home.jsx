@@ -29,7 +29,8 @@ const Home = () => {
 					<Button
 						className="scan_qrcode"
 						onClick={() => setOpenModal(true)}
-						{...HandleSpeakEvents(ttsContent.scan_qrcode)}>
+						{...HandleSpeakEvents(ttsContent.scan_qrcode)}
+						aria-label="Scan QR code to get more information">
 						<Card className="card">
 							<QrCode2Icon className="scan_icon" sx={{ fontSize: "92px" }} />
 							<Typography component="p" align="center" sx={{ fontWeight: 500 }}>
@@ -46,7 +47,12 @@ const Home = () => {
 						Record an audio review of purchased products.
 					</Typography>
 
-					<Link component={RouterLink} to="/review" underline="hover" className="review_button">
+					<Link
+						component={RouterLink}
+						to="/review"
+						underline="hover"
+						className="review_button"
+						title="Click here to start product review">
 						Start now
 						<ArrowForwardIcon className="icon" />
 					</Link>
